@@ -1,11 +1,21 @@
-import { log } from 'console'
-import React from 'react'
+import { notFound } from "next/navigation";
+import { db } from "@/db";
+interface SnippetShowPage {
+    params: {
+        id: string
+    }
+}
+async function snippetShowPage(props: any) {
+    const snippet = await db.snippet.findFirst({
+        where: { id: parseInt(props.params.id) }
+    });
 
-function snippetShowPage(props: any) {
-    console.log(props);
+    if (!snippet) {
+        return notFound();
+    }
 
     return (
-        <div>snippetShowPage</div>
+        <div>{snippet.title}</div>
     )
 }
 
