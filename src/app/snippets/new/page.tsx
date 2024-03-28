@@ -12,8 +12,8 @@ function SnippetsCreatePage() {
             data: {
                 title,
                 code,
-            }
-        })
+            },
+        });
         console.log(snippet);
         redirect('/');
 
@@ -28,7 +28,7 @@ function SnippetsCreatePage() {
                 </div>
                 <div className=' flex gap-4'>
                     <label htmlFor="code" className='w-12'>code</label>
-                    <textarea name='title' className='border rounded p-2 w-full' id='code' />
+                    <textarea name='code' className='border rounded p-2 w-full' id='code' />
                 </div>
                 <button type='submit' className=' rounded p-2 bg-blue-200'> Create</button>
             </div>
